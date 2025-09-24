@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>แบบฟอร์มลงทะเบียนสมาชิก AAPG</title>
+<style>
+  body {
+    background: #e6f2ff;
+    font-family: 'Kanit', sans-serif;
+    color: #2a4d69;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+  }
+
+  .form-container {
+    background: #ffffff;
+    border: 2px solid #a9c8e8;
+    border-radius: 1rem;
+    padding: 2rem;
+    max-width: 480px;
+    width: 100%;
+    box-shadow: 0 6px 20px rgba(42,77,105,0.15);
+    text-align: center;
+  }
+
+  /* ปรับสไตล์โลโก้ให้อยู่กึ่งกลาง */
+  .logo {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .logo img {
+    max-width: 150px;  /* กำหนดขนาดได้ตามต้องการ */
+    height: auto;
+  }
+
+  h1 {
+    margin-bottom: 1.5rem;
+    color: #2a4d69;
+    font-size: 1.4rem;
+  }
+  label {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+    text-align: left;
+  }
+  input[type="text"],
+  input[type="tel"] {
+    width: 95%;
+    padding: 0.6rem;
+    border: 1px solid #a9c8e8;
+    border-radius: 0.4rem;
+    background: #f6fbff;
+    color: #2a4d69;
+    font-size: 1rem;
+  }
+  input[type="text"]:focus,
+  input[type="tel"]:focus {
+    outline: none;
+    border-color: #6daedb;
+    box-shadow: 0 0 4px #6daedb;
+  }
+  input[type="submit"] {
+    margin-top: 1.5rem;
+    width: 100%;
+    padding: 0.8rem;
+    background: #6daedb;
+    border: none;
+    border-radius: 0.5rem;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  input[type="submit"]:hover {
+    background: #5c9ed0;
+  }
+  #successMsg {
+    margin-top: 1.5rem;
+    color: green;
+    font-weight: bold;
+    display: none;
+  }
+</style>
+</head>
+<body>
+  <div class="form-container">
+    <!-- โลโก้อยู่ด้านบนฟอร์ม -->
+    <div class="logo">
+      <img src="https://i.postimg.cc/3R5Zvscx/Logo-AAPG.png" alt="โลโก้บริษัท" />
+    </div>
+
+    <h1>แบบฟอร์มลงทะเบียนสมาชิก AAPG</h1>
+
+    <form id="aapgForm"
+      action="https://docs.google.com/forms/d/e/1FAIpQLSdiBqVnzjQFHwJmI60whzH4a9jCR8d_9xKk_w6PHx2VTIx-TQ/formResponse"
+      method="POST" target="hidden_iframe">
+
+      <label for="fname">First Name - Last Name (ชื่อ-นามสกุล)</label>
+      <input type="text" id="fname" name="entry.1028506290" required>
+
+      <label for="nick">Nickname (ชื่อเล่น)</label>
+      <input type="text" id="nick" name="entry.1369030141" required>
+
+      <label for="company">Company (บริษัท)</label>
+      <input type="text" id="company" name="entry.560575185" required>
+
+      <label for="contact">Contact No. (เบอร์มือถือ)</label>
+      <input type="tel" id="contact" name="entry.118946671" required>
+
+      <input type="submit" value="ลงทะเบียน">
+    </form>
+
+    <div id="successMsg">ลงทะเบียนเรียบร้อยแล้ว</div>
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+  </div>
+
+<script>
+  const form = document.getElementById('aapgForm');
+  const successMsg = document.getElementById('successMsg');
+  const iframe = document.getElementById('hidden_iframe');
+
+  form.addEventListener('submit', function () {
+    iframe.onload = function () {
+      successMsg.style.display = 'block';
+      form.reset();
+    };
+  });
+</script>
+</body>
+</html>
