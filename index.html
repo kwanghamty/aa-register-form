@@ -1,33 +1,24 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>แบบฟอร์มลงทะเบียนสมาชิก AAPG</title>
 <style>
   body {
-    background: #e6f2ff;
     font-family: 'Kanit', sans-serif;
-    color: #2a4d69;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 1rem;
+    background-color: #e0f0ff;
+    margin: 0;
+    padding: 0;
   }
-
-  .form-container {
-    background: #ffffff;
-    border: 2px solid #a9c8e8;
-    border-radius: 1rem;
-    padding: 2rem;
-    max-width: 480px;
-    width: 100%;
-    box-shadow: 0 6px 20px rgba(42,77,105,0.15);
-    text-align: center;
+  .container {
+    max-width: 600px;
+    margin: 50px auto;
+    background: #f0f8ff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   }
-
-  /* ปรับสไตล์โลโก้ให้อยู่กึ่งกลาง */
   .logo {
     text-align: center;
     margin-bottom: 20px;
@@ -36,101 +27,112 @@
     max-width: 150px;  /* กำหนดขนาดได้ตามต้องการ */
     height: auto;
   }
-
   h1 {
-    margin-bottom: 1.5rem;
-    color: #2a4d69;
-    font-size: 1.4rem;
+    text-align: center;
+    color: #1a73e8;
   }
   label {
     display: block;
-    margin-top: 1rem;
-    margin-bottom: 0.25rem;
-    font-weight: 600;
-    text-align: left;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #0b3d91;
   }
-  input[type="text"],
-  input[type="tel"] {
-    width: 95%;
-    padding: 0.6rem;
-    border: 1px solid #a9c8e8;
-    border-radius: 0.4rem;
-    background: #f6fbff;
-    color: #2a4d69;
-    font-size: 1rem;
-  }
-  input[type="text"]:focus,
-  input[type="tel"]:focus {
-    outline: none;
-    border-color: #6daedb;
-    box-shadow: 0 0 4px #6daedb;
-  }
-  input[type="submit"] {
-    margin-top: 1.5rem;
+  input[type="text"] {
     width: 100%;
-    padding: 0.8rem;
-    background: #6daedb;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid #b3d1ff;
+    box-sizing: border-box;
+  }
+  .options label {
+    display: inline-block;
+    margin-right: 20px;
+    font-weight: normal;
+  }
+  button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    background-color: #4a90e2;
+    color: white;
+    font-size: 16px;
     border: none;
-    border-radius: 0.5rem;
-    color: #fff;
-    font-weight: bold;
-    font-size: 1.1rem;
+    border-radius: 10px;
     cursor: pointer;
-    transition: background 0.3s;
   }
-  input[type="submit"]:hover {
-    background: #5c9ed0;
+  button:hover {
+    background-color: #3578c1;
   }
-  #successMsg {
-    margin-top: 1.5rem;
-    color: green;
-    font-weight: bold;
-    display: none;
+  @media (max-width: 480px) {
+    .options label {
+      display: block;
+      margin-bottom: 10px;
+    }
   }
 </style>
 </head>
 <body>
-  <div class="form-container">
-    <!-- โลโก้อยู่ด้านบนฟอร์ม -->
+<div class="container">
+<!-- โลโก้อยู่ด้านบนฟอร์ม -->
     <div class="logo">
       <img src="https://i.postimg.cc/3R5Zvscx/Logo-AAPG.png" alt="โลโก้บริษัท" />
     </div>
 
-    <h1>แบบฟอร์มลงทะเบียนสมาชิก AAPG</h1>
+  <h1>แบบฟอร์มลงทะเบียนสมาชิก AAPG</h1>
+  <form id="aapgForm" action="https://docs.google.com/forms/d/e/1FAIpQLSdiBqVnzjQFHwJmI60whzH4a9jCR8d_9xKk_w6PHx2VTIx-TQ/formResponse" method="POST" target="hidden_iframe">
 
-    <form id="aapgForm"
-      action="https://docs.google.com/forms/d/e/1FAIpQLSdiBqVnzjQFHwJmI60whzH4a9jCR8d_9xKk_w6PHx2VTIx-TQ/formResponse"
-      method="POST" target="hidden_iframe">
+    <!-- First Name - Last Name -->
+    <label>1. First Name - Last Name (ชื่อ-นามสกุล)</label>
+    <input type="text" name="entry.1028506290" required>
 
-      <label for="fname">First Name - Last Name (ชื่อ-นามสกุล)</label>
-      <input type="text" id="fname" name="entry.1028506290" required>
+    <!-- Nickname -->
+    <label>2. Nickname (ชื่อเล่น)</label>
+    <input type="text" name="entry.1369030141" required>
 
-      <label for="nick">Nickname (ชื่อเล่น)</label>
-      <input type="text" id="nick" name="entry.1369030141" required>
+    <!-- Contact No -->
+    <label>3. Contact No. (เบอร์มือถือ)</label>
+    <input type="text" name="entry.118946671" required>
 
-      <label for="company">Company (บริษัท)</label>
-      <input type="text" id="company" name="entry.560575185" required>
+    <!-- Company -->
+    <label>4. Company (บริษัท)</label>
+    <input type="text" name="entry.560575185" required>
 
-      <label for="contact">Contact No. (เบอร์มือถือ)</label>
-      <input type="tel" id="contact" name="entry.118946671" required>
+    <!-- Position -->
+    <label>5. Position (ตำแหน่ง)</label>
+    <input type="text" name="entry.1620198192" required>
 
-      <input type="submit" value="ลงทะเบียน">
-    </form>
+    <!-- รู้จัก Thermoflex -->
+    <label>6. ท่านรู้จักฉนวนกันความร้อน Thermoflex มาก่อนหรือไม่ ?</label>
+    <div class="options">
+      <label><input type="radio" name="entry.1361398078" value="รู้จัก" required> รู้จัก</label>
+      <label><input type="radio" name="entry.1361398078" value="ไม่รู้จัก" required> ไม่รู้จัก</label>
+    </div>
 
-    <div id="successMsg">ลงทะเบียนเรียบร้อยแล้ว</div>
-    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
-  </div>
+    <!-- ชื่อฉนวนที่รู้จัก -->
+    <label>7. บอกชื่อฉนวนกันความร้อนที่ท่านรู้จัก</label>
+    <input type="text" name="entry.1231731323">
+
+    <!-- ประเภทฉนวนที่ใช้ -->
+    <label>8. ประเภทฉนวนกันความร้อนที่ท่านใช้ประจำ (เช่น ใยแก้ว ใยหิน ยางสังเคราะห์ PE PU)</label>
+    <input type="text" name="entry.2049636069">
+
+    <!-- สนใจให้เจ้าหน้าที่ไปแนะนำ -->
+    <label>9. ท่านสนใจให้เจ้าหน้าที่ เข้าไปให้ความรู้-แนะนำผลิตภัณฑ์หรือไม่ ?</label>
+    <div class="options">
+      <label><input type="radio" name="entry.283299098" value="สนใจ" required> สนใจ</label>
+      <label><input type="radio" name="entry.283299098" value="ไม่สนใจ" required> ไม่สนใจ</label>
+    </div>
+
+    <button type="submit">ส่งข้อมูล</button>
+  </form>
+  <iframe name="hidden_iframe" style="display:none;"></iframe>
+</div>
 
 <script>
-  const form = document.getElementById('aapgForm');
-  const successMsg = document.getElementById('successMsg');
-  const iframe = document.getElementById('hidden_iframe');
-
-  form.addEventListener('submit', function () {
-    iframe.onload = function () {
-      successMsg.style.display = 'block';
-      form.reset();
-    };
+  // Alert หลังส่งข้อมูล
+  document.getElementById('aapgForm').addEventListener('submit', function(){
+    alert("แบบฟอร์มถูกส่งเรียบร้อย!");
   });
 </script>
 </body>
